@@ -1,10 +1,20 @@
 #include "v1.1_bib.h"
 
 void failuKurimas(int, int);
-void skaitymas(int, vector <Studentas>&, string);
-void skirstymas(vector <Studentas>&, vector <Studentas>&);
-void surasymas(vector <Studentas>, vector <Studentas>);
-bool arSkola(Studentas);
+
+//------------Klase-----------
+void skaitymasKlase(int, vector <Studentas>&, string);
+void skirstymasKlase(vector <Studentas>&, vector <Studentas>&);
+void surasymasKlase(vector <Studentas>, vector <Studentas>, string, string);
+
+//-------------Struct----------
+void skaitymasStruct(int, vector <studentas>&, string);
+void skirstymasStruct(vector <studentas>&, vector <studentas>&);
+void surasymasStruct(vector <studentas>, vector <studentas>, string, string);
+
+//----------Pagalbines---------
+bool arSkolaKlase(Studentas);
+bool arSkolaStruct(studentas);
 
 
 void failuKurimas(int ndkiekis, int studkiekis) {
@@ -42,8 +52,11 @@ void failuKurimas(int ndkiekis, int studkiekis) {
     failas.close();
 }
 
+//--------------------KLASES--------------------//
 
-void skaitymas(int studkiekis, vector <Studentas>& grupele, string pasirinkimas) {
+void skaitymasKlase(int studkiekis, vector <Studentas>& grupele, string pasirinkimas) {
+    auto start = std::chrono::high_resolution_clock::now();
+
     ifstream failas;
     string sVardai, sPavardes, sTemp, egzaminas;
     vector <string> ndMasyv;
@@ -83,6 +96,7 @@ void skaitymas(int studkiekis, vector <Studentas>& grupele, string pasirinkimas)
             failas >> vardas >> pavarde;
 
             int laikPaz;
+            pazymiai.reserve(m);
 
             for (int i = 0; i < m; i++) {
                 failas >> laikPaz;
@@ -92,6 +106,7 @@ void skaitymas(int studkiekis, vector <Studentas>& grupele, string pasirinkimas)
             failas >> egz;
 
             Studentas temp(vardas, pavarde, pazymiai, egz);
+            pazymiai.clear();
             grupele.push_back(temp);
         }
         failas.close();
@@ -99,7 +114,6 @@ void skaitymas(int studkiekis, vector <Studentas>& grupele, string pasirinkimas)
     catch (string pav) {
         cout << pav << " failas neegzistuoja arba jo nepavyko atidaryti\n";
     }
-    cout << "duomenys jau faile. Liko tik skiaicuoti galutinius:" << endl;
     if (pasirinkimas == "vid") {
         for (auto& studentas : grupele) {
             studentas.galutinisVid();
@@ -110,17 +124,17 @@ void skaitymas(int studkiekis, vector <Studentas>& grupele, string pasirinkimas)
             studentas.galutinisMed();
         }
     }
-    cout << "Baigesi skaitymas" << endl;
+    std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;
+    cout << "Surasymas i klases ir klasiu surasymas i vektoriu uztruko: " << diff.count() << "s" << endl;
 }
 
-
-void skirstymas(vector <Studentas> &grupele, vector <Studentas>& dundukai) {
+void skirstymasKlase(vector <Studentas>& grupele, vector <Studentas>& dundukai) {
     auto start = std::chrono::high_resolution_clock::now();
 
     int grupeDydis = size(grupele);
     dundukai.reserve(grupeDydis * 0.5);
 
-    vector<Studentas>::iterator it = std::partition(grupele.begin(), grupele.end(), arSkola);
+    vector<Studentas>::iterator it = std::partition(grupele.begin(), grupele.end(), arSkolaKlase);
     std::move(grupele.begin(), it, back_inserter(dundukai));
     grupele.erase(grupele.begin(), it);
     
@@ -135,24 +149,164 @@ void skirstymas(vector <Studentas> &grupele, vector <Studentas>& dundukai) {
     }*/
     
     std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;
-    cout << "Rusiavimas ir skirstymas i 2 vektorius uztruko: " << diff.count() << "s" << endl;
+    cout << "Klase rusiavimas ir skirstymas i 2 vektorius uztruko: " << diff.count() << "s" << endl;
 }
 
-
-void surasymas(vector <Studentas> dundukai, vector <Studentas> sukciukai) {
-    ofstream failD("testdundukai.txt"); // kuriame dunduku faila
+void surasymasKlase(vector <Studentas> dundukai, vector <Studentas> sukciukai, string pavDundukai, string pavSukciukai) {
+    auto start = std::chrono::high_resolution_clock::now();
+    ofstream failD(pavDundukai); // kuriame dunduku faila
+    failD << setw(20) << "Vardas" << setw(20) << "Pavarde" << "\t" << "Galutinis";
+    
     for (auto& dundukas : dundukai) {
-        failD << setw(20) << dundukas.getVardas() << setw(20) << dundukas.getPavard() << "\t" << dundukas.getEgz() << endl;
+        failD << endl;
+        failD << setw(20) << dundukas.getVardas() << setw(20) << dundukas.getPavard() << "\t" << dundukas.getGal();
     }
     failD.close();
 
-    ofstream failS("testSukciukai.txt"); // kuriame sukckiuku faila
+    ofstream failS(pavSukciukai); // kuriame sukckiuku faila
+    failS << setw(20) << "Vardas" << setw(20) << "Pavarde" << "\t" << "Galutinis";
     for (auto& sukciukas : sukciukai) {
-        failS << setw(20) << sukciukas.getVardas() << setw(20) << sukciukas.getPavard() << "\t" << sukciukas.getEgz() << endl;
+        failS << endl;
+        failS << setw(20) << sukciukas.getVardas() << setw(20) << sukciukas.getPavard() << "\t" << sukciukas.getGal();
     }
     failS.close();
+
+    std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;
+    cout << "Surasymas i 2 failus uztruko: " << diff.count() << "s" << endl;
 }
 
-bool arSkola(Studentas stud) {
+//-------------------STRUCTAI-------------------//
+
+void skaitymasStruct(int studkiekis, vector <studentas>& grupele, string pasirinkimas) {
+    auto start = std::chrono::high_resolution_clock::now();
+    ifstream failas;
+    string sVardai, sPavardes, sTemp, egzaminas;
+    vector <string> ndMasyv;
+    int m;  //namu darbu kiekis
+
+    string failoPav = to_string(studkiekis);
+    failoPav += ".txt";
+
+
+    try {
+        failas.open(failoPav);
+    }
+    catch (std::exception& e) {
+        cout << "Failas " << failoPav << " nebuvo rastas" << endl;
+    }
+
+    try {
+        if (!failas.good()) {
+            throw failoPav;
+        }
+        failas >> sVardai >> sPavardes >> sTemp;
+        while (sTemp != "Egz.") {
+            ndMasyv.push_back(sTemp);
+            failas >> sTemp;
+        }
+        egzaminas = sTemp;  //sie nuskaitymai pades tureti stulpeliu vardus, bet svarbiausia: bus zinomas namu darbu kiekis
+
+        m = ndMasyv.size();
+        ndMasyv.clear();
+
+        while (!failas.eof()) { //skaito iki kol atsimusa i failo pabaiga
+            studentas laik;
+            failas >> laik.vardas >> laik.pavard;
+
+            float laikPaz;
+
+            for (int i = 0; i < m; i++) {
+                failas >> laikPaz;
+                laik.nd.push_back(laikPaz);
+            }
+
+            failas >> laik.egz;
+            grupele.push_back(laik);
+            laik.nd.clear();
+        }
+        failas.close();
+    }
+    catch (string pav) {
+        cout << pav << " failas neegzistuoja arba jo nepavyko atidaryti\n";
+    }
+
+
+    //skaiciavimas pagal vidurki:
+    if (pasirinkimas == "vid") {
+        float suma;
+        float vid = 0;
+        for (auto& studenciokas : grupele) {
+            suma = std::accumulate(std::begin(studenciokas.nd), std::end(studenciokas.nd), 0.0);
+            vid = suma / m;
+            studenciokas.galut = 0.6 * studenciokas.egz + 0.4 * vid;
+        }
+    }
+
+    //skaiciavimas pagal mediana:
+    else {
+        double mediana;
+        for (auto& studenciokas : grupele) {
+            std::sort(studenciokas.nd.begin(), studenciokas.nd.end());
+            if (m % 2 == 0) {
+                mediana = (studenciokas.nd.at((m * 1.0) / 2 - 1) + studenciokas.nd.at(m / 2)) / 2;
+            }
+            else {
+                int index = (m * 1.0 - 1) / 2 + 0.5;
+                mediana = studenciokas.nd.at(index);
+            }
+            studenciokas.galut = 0.6 * studenciokas.egz + 0.4 * mediana;
+        }
+    }
+    std::chrono::duration<float> diff = std::chrono::high_resolution_clock::now() - start;
+    cout << "Skaitymas nuo failo ir surasymas i structus uztruko: " << diff.count() << "s" << endl;
+}
+
+void skirstymasStruct(vector <studentas>& grupele, vector <studentas>& dundukai) {
+    auto start = std::chrono::high_resolution_clock::now();
+
+    int grupeDydis = size(grupele);
+    dundukai.reserve(grupeDydis * 0.5);
+
+    vector<studentas>::iterator it = std::partition(grupele.begin(), grupele.end(), arSkolaStruct);
+    std::move(grupele.begin(), it, back_inserter(dundukai));
+    grupele.erase(grupele.begin(), it);
+
+    std::chrono::duration<double> diff = std::chrono::high_resolution_clock::now() - start;
+    cout << "Struct rusiavimas ir skirstymas i 2 vektorius uztruko: " << diff.count() << "s" << endl;
+}
+
+void surasymasStruct(vector <studentas> dundukai, vector <studentas> sukciukai, string pavDundukai, string pavSukciukai) {
+    auto start = std::chrono::high_resolution_clock::now();
+    ofstream failD(pavDundukai); // kuriame dunduku faila
+    int ndKiekis = dundukai.front().nd.size();    //paimame belenkoki vektoriaus elementa (studenta) ir patikriname kiek jis turi nd
+
+    failD << setw(20) << "Vardas" << setw(20) << "Pavarde" << "\t" << "Galut.";
+
+    for (auto& dundukas : dundukai) {
+        failD << endl;
+        failD << setw(20) << dundukas.vardas << setw(20) << dundukas.pavard << "\t" << dundukas.galut;
+    }
+    failD.close();
+
+    ofstream failS(pavSukciukai); // kuriame sukciuku faila
+
+    failS << setw(20) << "Vardas" << setw(20) << "Pavarde" << "\t" << "Galut.";
+
+    for (auto& sukciukas : sukciukai) {
+        failS << endl;
+        failS << setw(20) << sukciukas.vardas << setw(20) << sukciukas.pavard << "\t" << sukciukas.galut;
+    }
+    failS.close();
+    std::chrono::duration<float> diff = std::chrono::high_resolution_clock::now() - start;
+    cout << "2 sarasu surasymas i 2 failus uztruko: " << diff.count() << "s" << endl;
+}
+
+//------------Pagalbines funkcijos--------------//
+
+bool arSkolaKlase(Studentas stud) {
     return stud.gavoSkola();
+}
+
+bool arSkolaStruct(studentas stud) {
+    return stud.galut < 5;
 }

@@ -87,9 +87,22 @@ class Studentas {
 		}
 };
 
+struct studentas {
+	string vardas, pavard;
+	vector <float> nd;
+	float egz, galut;
+};
+
 
 void failuKurimas(int, int);
-void skaitymas(int, vector <Studentas>&, string);
-void skirstymas(vector <Studentas>&, vector <Studentas>&);
-void surasymas(vector <Studentas>, vector <Studentas>);
-bool arSkola(Studentas);
+
+void skaitymasKlase(int, vector <Studentas>&, string);
+void skirstymasKlase(vector <Studentas>&, vector <Studentas>&);
+void surasymasKlase(vector <Studentas>, vector <Studentas>, string, string);
+
+void skaitymasStruct(int, vector <studentas>&, string);
+void skirstymasStruct(vector <studentas>&, vector <studentas>&);
+void surasymasStruct(vector <studentas>, vector <studentas>, string, string);
+
+bool arSkolaKlase(Studentas);
+bool arSkolaStruct(studentas);
