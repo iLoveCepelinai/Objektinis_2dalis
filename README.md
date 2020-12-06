@@ -19,4 +19,9 @@ Vėliau dieną išsiaiškinau kodėl: nes neišvaliau namų darbų laikino vekto
 ## Išvados
 * nuotrauka
 Taigi gauname, kad nuskaitymo laikas yra greitesnis į klases, rūšiavimo laikas yra greitesnis struct'ams, o išvedimo į naujus failus - panašiai. Viso laikas yra geresnis klasių.
-* kompiuterio parametrai
+
+## Kompiuterio parametrai
+* Intel core i7-7700HQ
+* 8 GB RAM DDR4
+* Failas įrašomas/nuskaitomas iš HDD, bet Visual Studio įrašyta į SSD
+
