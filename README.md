@@ -17,7 +17,7 @@ Vėliau dieną išsiaiškinau kodėl: nes neišvaliau namų darbų laikino vekto
 * Analogiškai su 1 000 000
 
 ## Išvados
-! [laikai](https://github.com/iLoveCepelinai/Objektinis_2dalis/blob/v_1.1/structVSclass.png)
+![laikai](https://github.com/iLoveCepelinai/Objektinis_2dalis/blob/v_1.1/structVSclass.png)
 Taigi gauname, kad nuskaitymo laikas yra greitesnis į klases, rūšiavimo laikas yra greitesnis struct'ams, o išvedimo į naujus failus - panašiai. Viso laikas yra geresnis klasių.
 
 ## Kompiuterio parametrai
