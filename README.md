@@ -21,6 +21,11 @@ Vėliau dieną išsiaiškinau kodėl: nes neišvaliau namų darbų laikino vekto
 
 Taigi gauname, kad nuskaitymo laikas yra greitesnis į klases, rūšiavimo laikas yra greitesnis struct'ams, o išvedimo į naujus failus - panašiai. Viso laikas yra geresnis klasių.
 
+## Flag'ų išvados
+* Naudojant O1 (prioritizuoja dydį) aišku gauname didesnius laikus nei O2. O3 rasti Visual Studio nepavyko :(
+![laikai O1](https://github.com/iLoveCepelinai/Objektinis_2dalis/blob/v_1.1/1.1pav/structVSclass(O1).png)
+![laikai O2](https://github.com/iLoveCepelinai/Objektinis_2dalis/blob/v_1.1/1.1pav/structVSclass(O2).png)
+
 ## Kompiuterio parametrai
 * Intel core i7-7700HQ
 * 8 GB RAM DDR4
