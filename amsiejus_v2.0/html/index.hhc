@@ -1,0 +1,59 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML><HEAD></HEAD><BODY>
+<OBJECT type="text/site properties">
+<param name="FrameName" value="right">
+</OBJECT>
+<UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Classes"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Class List"><param name="Local" value="annotated.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Studentas"><param name="Local" value="class_studentas.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="Studentas"><param name="Local" value="class_studentas.html#a089181a9af5700a92ded79eb26472899"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="~Studentas"><param name="Local" value="class_studentas.html#a63e449e0f51a0b14340d02ee71b4be23"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="galutinisMed"><param name="Local" value="class_studentas.html#a77ab29592e67ad7b207c4c307e3d1516"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="galutinisVid"><param name="Local" value="class_studentas.html#abbb69d76ed5cac74d344ad050a83a581"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="gavoSkola"><param name="Local" value="class_studentas.html#a825e65b4ad0daa2515a06e7df1aa8a18"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="getEgz"><param name="Local" value="class_studentas.html#afb4621cbf3951beccc6bf2c603aa1194"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="getGal"><param name="Local" value="class_studentas.html#a675b74e5a67b4e6a81aafb6d8e16ffea"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="getPavard"><param name="Local" value="class_studentas.html#aeff74c9c809a857b9b7cb79a5ca8efe3"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="getVardas"><param name="Local" value="class_studentas.html#a6bf9bbc6b7de5656122ae6b826930992"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="studentas"><param name="Local" value="structstudentas.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="egz"><param name="Local" value="structstudentas.html#a616126116b6355942ee4f71a5d611514"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="galut"><param name="Local" value="structstudentas.html#a195737985a731dc8856ea174d532752b"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="nd"><param name="Local" value="structstudentas.html#a8ac2986d83bc8fbc4ddc72c8e3508bb3"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="pavard"><param name="Local" value="structstudentas.html#a6d99a56fc373186150b76cb4360e0bd8"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="vardas"><param name="Local" value="structstudentas.html#a12c7418eb835240f31d00a3ebf7b22bf"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Zmogus"><param name="Local" value="class_zmogus.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="Zmogus"><param name="Local" value="class_zmogus.html#abcea2eb5f4c209f8623405a3d838f1c2"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="getPavard"><param name="Local" value="class_zmogus.html#a1c872a02c53ffb4aee4543f6c04be6ad"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="getVardas"><param name="Local" value="class_zmogus.html#abb7ec110c524850361dfae63d5b87ff1"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="pavard_"><param name="Local" value="class_zmogus.html#a91628a9c4158bc80935f9e9bb0330458"><param name="ImageNumber" value="11"></OBJECT>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="vardas_"><param name="Local" value="class_zmogus.html#a09b290c9be6039ce3a94e1557def9b3a"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    </UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Class Index"><param name="Local" value="classes.html"><param name="ImageNumber" value="11"></OBJECT>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="Class Hierarchy"><param name="Local" value="hierarchy.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="studentas"><param name="Local" value="structstudentas.html"><param name="ImageNumber" value="11"></OBJECT>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="Zmogus"><param name="Local" value="class_zmogus.html"><param name="ImageNumber" value="1"></OBJECT>
+      <UL>
+      <LI><OBJECT type="text/sitemap"><param name="Name" value="Studentas"><param name="Local" value="class_studentas.html"><param name="ImageNumber" value="11"></OBJECT>
+      </UL>
+    </UL>
+  </UL>
+<LI><OBJECT type="text/sitemap"><param name="Name" value="Files"><param name="Local" value="files.html"><param name="ImageNumber" value="1"></OBJECT>
+  <UL>
+  <LI><OBJECT type="text/sitemap"><param name="Name" value="File List"><param name="Local" value="files.html"><param name="ImageNumber" value="1"></OBJECT>
+    <UL>
+    <LI><OBJECT type="text/sitemap"><param name="Name" value="v1.5_bib.h"><param name="Local" value="v1_85__bib_8h_source.html"><param name="ImageNumber" value="11"></OBJECT>
+    </UL>
+  </UL>
+</UL>
+</BODY>
+</HTML>
